@@ -1,13 +1,13 @@
 .todo-card {
-  background: #1f1f1f;
   color: #fff;
+  background: #1f1f1f;
   border-radius: 8px;
   padding: 24px;
 }
 
 .todo-title {
   margin: 0;
-  color: #fff;
+  color: #fff !important;;
   text-align: center;
 }
 
@@ -18,8 +18,8 @@
 }
 
 .todo-input {
-  background: #141414;
-  color: #fff;
+  background: #141414 !important;
+  color: #fff !important;
   border-color: #303030;
   width: 500px;
   margin-right: 3px;
@@ -33,6 +33,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #fff;
 }
 
 .todo-text {
@@ -50,4 +51,10 @@
 
 .todo-item:hover .opacity-transition {
   opacity: 1;
+}
+
+.todo-edit-input {
+  background: #141414;
+  color: #fff;
+  border-color: #303030;
 }
