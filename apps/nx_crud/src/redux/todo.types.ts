@@ -1,22 +1,18 @@
-// src/redux/types/todo.types.ts
 
 import { todoConstants } from './constance/todo.contance';
 
-// Define the Todo type
 export interface Todo {
   id: number;
   text: string;
   completed: boolean;
 }
 
-// Define the state type for the Todo feature
 export interface TodoState {
   todos: Todo[];
   loading: boolean;
   error: string | null;
 }
 
-// Define action types for each action
 export interface AddTodoRequestAction {
   type: typeof todoConstants.ADD_TODO_REQUEST;
 }
@@ -59,7 +55,23 @@ export interface ToggleTodoFailureAction {
   error: string;
 }
 
-// Combine all action types into a union type
+export interface EditTodoRequestAction {
+  type: typeof todoConstants.EDIT_TODO_REQUEST;
+  id: number;
+  text: string;
+}
+
+export interface EditTodoSuccessAction {
+  type: typeof todoConstants.EDIT_TODO_SUCCESS;
+  id: number;
+  text: string;
+}
+
+export interface EditTodoFailureAction {
+  type: typeof todoConstants.EDIT_TODO_FAILURE;
+  error: string;
+}
+
 export type TodoActionTypes =
   | AddTodoRequestAction
   | AddTodoSuccessAction
@@ -69,4 +81,7 @@ export type TodoActionTypes =
   | RemoveTodoFailureAction
   | ToggleTodoRequestAction
   | ToggleTodoSuccessAction
-  | ToggleTodoFailureAction;
+  | ToggleTodoFailureAction
+  |EditTodoRequestAction
+  | EditTodoSuccessAction
+  | EditTodoFailureAction
