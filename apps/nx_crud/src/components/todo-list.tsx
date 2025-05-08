@@ -81,21 +81,6 @@ const TodoList: React.FC = () => {
     setEditingText('');
   };
 
-  const {loading, error } = useSelector((state: RootState) => state.todoReducer);
-
-
-useEffect(() => {
-  console.log('tod',todos,loading,error);
-  
-  if (loading) {
-    message.loading({ content: 'Processing...', key: 'todo' });
-  } else if (error) {
-    message.error({ content: error, key: 'todo', duration: 2 });
-  } else {
-    message.success({ content: 'Action successful!', key: 'todo', duration: 2 });
-  }
-}, [loading, error]);
-
 
 
   return (

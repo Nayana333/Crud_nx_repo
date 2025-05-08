@@ -1,4 +1,27 @@
+// {
+//   "files": [],
+//   "include": [],
+//   "references": [
+//     {
+//       "path": "./tsconfig.app.json"
+//     },
+//     {
+//       "path": "./tsconfig.spec.json"
+//     }
+//   ],
+//   "extends": "../../tsconfig.base.json"
+// }
+
+
 {
+  "compilerOptions": {
+    "lib": ["dom", "esnext"],
+    "types": ["jest", "node"]
+  },
+  "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
   "files": [],
   "include": [],
   "references": [
@@ -8,6 +31,8 @@
     {
       "path": "./tsconfig.spec.json"
     }
+
   ],
   "extends": "../../tsconfig.base.json"
 }
+
