@@ -19,7 +19,6 @@ const initialState: TodoState = {
   error: null,
 };
 
-// Type guards
 function isAddTodoSuccessAction(action: TodoActionTypes): action is AddTodoSuccessAction {
   return action.type === todoConstants.ADD_TODO_SUCCESS;
 }
@@ -38,14 +37,12 @@ function isEditTodoSuccessAction(action: TodoActionTypes): action is EditTodoSuc
 
 export function todoReducer(state = initialState, action: TodoActionTypes): TodoState {
   switch (action.type) {
-    // REQUESTS
     case todoConstants.ADD_TODO_REQUEST:
     case todoConstants.REMOVE_TODO_REQUEST:
     case todoConstants.TOGGLE_TODO_REQUEST:
     case todoConstants.EDIT_TODO_REQUEST:
       return { ...state, loading: true };
 
-    // ADD
     case todoConstants.ADD_TODO_SUCCESS:
       if (isAddTodoSuccessAction(action)) {
         return {
@@ -63,7 +60,6 @@ export function todoReducer(state = initialState, action: TodoActionTypes): Todo
         error: (action as AddTodoFailureAction).error,
       };
 
-    // REMOVE
     case todoConstants.REMOVE_TODO_SUCCESS:
       if (isRemoveTodoSuccessAction(action)) {
         return {
@@ -81,7 +77,6 @@ export function todoReducer(state = initialState, action: TodoActionTypes): Todo
         error: (action as RemoveTodoFailureAction).error,
       };
 
-    // TOGGLE
     case todoConstants.TOGGLE_TODO_SUCCESS:
       if (isToggleTodoSuccessAction(action)) {
         return {
@@ -101,7 +96,6 @@ export function todoReducer(state = initialState, action: TodoActionTypes): Todo
         error: (action as ToggleTodoFailureAction).error,
       };
 
-    // EDIT
     case todoConstants.EDIT_TODO_SUCCESS:
       if (isEditTodoSuccessAction(action)) {
         return {
@@ -121,7 +115,6 @@ export function todoReducer(state = initialState, action: TodoActionTypes): Todo
         error: (action as EditTodoFailureAction).error,
       };
 
-    // DEFAULT
     default:
       return state;
   }

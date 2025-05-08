@@ -8,6 +8,7 @@ import {
   Empty,
   Badge,
   Divider,
+  message
 } from 'antd';
 import {
   UndoOutlined,
@@ -20,7 +21,7 @@ import { todoActions } from '../redux/actions/todo.actions';
 import { Todo } from '../redux/todo.types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store/rootReducers';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { AppDispatch } from '../redux/store/store';
 
 const TodoList: React.FC = () => {
@@ -79,6 +80,21 @@ const TodoList: React.FC = () => {
     setEditingId(null);
     setEditingText('');
   };
+
+  const {loading, error } = useSelector((state: RootState) => state.todoReducer);
+
+
+useEffect(() => {
+  console.log('tod',todos,loading,error);
+  
+  if (loading) {
+    message.loading({ content: 'Processing...', key: 'todo' });
+  } else if (error) {
+    message.error({ content: error, key: 'todo', duration: 2 });
+  } else {
+    message.success({ content: 'Action successful!', key: 'todo', duration: 2 });
+  }
+}, [loading, error]);
 
 
 
