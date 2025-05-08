@@ -8,7 +8,6 @@ import {
   Empty,
   Badge,
   Divider,
-  message
 } from 'antd';
 import {
   UndoOutlined,
@@ -21,7 +20,7 @@ import { todoActions } from '../redux/actions/todo.actions';
 import { Todo } from '../redux/todo.types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store/rootReducers';
-import { useState ,useEffect} from 'react';
+import { useState } from 'react';
 import { AppDispatch } from '../redux/store/store';
 
 const TodoList: React.FC = () => {
@@ -163,6 +162,7 @@ const TodoList: React.FC = () => {
                   danger
                   icon={<DeleteOutlined />}
                   onClick={() => handleDelete(todo.id)}
+                  data-testid={`delete-button-${todo.id}`}
                 />
               </Tooltip>
             </div>

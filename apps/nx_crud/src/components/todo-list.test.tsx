@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';  
@@ -28,10 +27,10 @@ test('can delete a todo', () => {
   );
 
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'To Delete' } });
-  fireEvent.click(screen.getByText('Add'));  
+  fireEvent.click(screen.getByText('Add'));
 
-  fireEvent.click(screen.getByText('Delete'));  
-  expect(screen.queryByText('To Delete')).not.toBeInTheDocument();  
+  fireEvent.click(screen.getByText('Delete'));
+  expect(screen.queryByText('To Delete')).not.toBeInTheDocument();
 });
 
 test('can edit a todo', () => {
